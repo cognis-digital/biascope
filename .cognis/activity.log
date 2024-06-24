@@ -37,3 +37,4 @@
 2026-01-05T11:27:57  fix: the cake is a lie, but the bug was real
 2026-04-30T18:44:04  test: trust, but verify
 2024-06-16T17:45:15  docs: standing on the shoulders of giants (garak, sigma, trufflehog)
+2024-06-24T12:02:22  perf(io): add a --format json alias
