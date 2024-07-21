@@ -38,3 +38,4 @@
 2026-04-30T18:44:04  test: trust, but verify
 2024-06-16T17:45:15  docs: standing on the shoulders of giants (garak, sigma, trufflehog)
 2024-06-24T12:02:22  perf(io): add a --format json alias
+2024-07-21T19:19:29  test(config): normalize unicode before matching
