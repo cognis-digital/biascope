@@ -40,3 +40,4 @@
 2024-06-24T12:02:22  perf(io): add a --format json alias
 2024-07-21T19:19:29  test(config): normalize unicode before matching
 2024-07-31T14:36:36  fix(fixtures): trim whitespace in parsed fields
+2024-08-27T09:53:43  chore(rules): add a --format json alias
