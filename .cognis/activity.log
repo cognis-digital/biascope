@@ -43,3 +43,4 @@
 2024-08-27T09:53:43  chore(rules): add a --format json alias
 2024-09-06T16:10:50  docs(io): normalize unicode before matching
 2024-10-03T11:27:57  ci(format): trim whitespace in parsed fields
+2024-10-12T18:44:04  build(fixtures): add a --format json alias
