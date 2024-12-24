@@ -47,3 +47,4 @@
 2024-11-09T13:01:11  feat(rules): normalize unicode before matching
 2024-11-17T08:18:18  perf(docs): trim whitespace in parsed fields
 2024-12-15T15:35:25  test(detect): add a --format json alias
+2024-12-24T10:52:32  ci(cache): normalize unicode before matching
