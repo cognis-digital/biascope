@@ -50,3 +50,4 @@
 2024-12-24T10:52:32  ci(cache): normalize unicode before matching
 2025-01-20T17:09:39  chore(tests): trim whitespace in parsed fields
 2025-01-30T12:26:46  docs(docs): add a --format json alias
+2025-02-26T19:43:53  perf(detect): normalize unicode before matching
