@@ -60,3 +60,4 @@
 2025-06-25T08:42:42  refactor(fixtures): trim whitespace in parsed fields
 2025-07-22T15:59:49  perf(rules): add a --format json alias
 2025-08-01T10:16:56  test(io): normalize unicode before matching
+2025-08-28T17:33:03  fix(format): trim whitespace in parsed fields
