@@ -64,3 +64,4 @@
 2025-09-07T12:50:10  chore(fixtures): add a --format json alias
 2025-10-03T19:07:17  style(tests): wire the MCP tool schema
 2025-10-12T14:24:24  ci(docs): trim whitespace in parsed fields
+2025-11-09T09:41:31  build(detect): add a --format json alias
