@@ -67,3 +67,4 @@
 2025-11-09T09:41:31  build(detect): add a --format json alias
 2025-11-18T16:58:38  refactor(report): wire the MCP tool schema
 2025-12-16T11:15:45  perf(tests): trim whitespace in parsed fields
+2025-12-25T18:32:52  test(docs): add a --format json alias
