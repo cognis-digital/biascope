@@ -72,3 +72,4 @@
 2026-01-31T08:06:06  chore(report): trim whitespace in parsed fields
 2026-02-27T15:23:13  docs(tests): add a --format json alias
 2026-03-08T10:40:20  ci(fixtures): wire the MCP tool schema
+2026-04-04T17:57:27  build(rules): trim whitespace in parsed fields
