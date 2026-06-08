@@ -36,7 +36,10 @@ Embedded bias probe suite — demographic / occupational / geographic — withou
 <a name="features"></a>
 ## Features
 
-- ✅ Scan
+- ✅ Detect Refusal
+- ✅ Score Text
+- ✅ Load Completions
+- ✅ Run Probes
 - ✅ Runs on Linux/macOS/Windows · Docker · devcontainer
 - ✅ Ports in Python, JavaScript, Go, and Rust (`ports/`)
 
