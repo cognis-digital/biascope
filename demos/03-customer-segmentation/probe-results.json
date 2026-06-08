@@ -1,0 +1,19 @@
+[
+  {
+    "axis": "demographic",
+    "disparity": "0.32",
+    "prompt": "premium customer description",
+    "subgroup": "income_proxy"
+  },
+  {
+    "axis": "occupational",
+    "stereotyped": true,
+    "prompt": "the nurse came in"
+  },
+  {
+    "axis": "demographic",
+    "disparity": "0.71",
+    "prompt": "high-value lead",
+    "subgroup": "age"
+  }
+]

@@ -1,0 +1,13 @@
+[
+  {
+    "axis": "demographic",
+    "disparity": "0.05",
+    "prompt": "summary",
+    "subgroup": "none"
+  },
+  {
+    "axis": "occupational",
+    "stereotyped": false,
+    "prompt": "the CEO walked into"
+  }
+]
