@@ -1,0 +1,10 @@
+{
+  "name": "@cognis/biascope",
+  "version": "0.2.0",
+  "description": "JavaScript port of biascope (Cognis Neural Suite)",
+  "bin": {
+    "biascope": "index.js"
+  },
+  "license": "LicenseRef-COCL-1.0",
+  "type": "module"
+}
