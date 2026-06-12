@@ -19,7 +19,7 @@ Security and intelligence teams need embedded bias probe suite — demographic /
 ## Install
 
 ```bash
-pip install cognis-biascope
+pip install "git+https://github.com/cognis-digital/biascope.git"
 # or, from this repo:
 pip install -e ".[dev]"
 ```
