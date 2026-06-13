@@ -12,9 +12,51 @@
 
 *AI Security & Governance — securing LLMs, agents, and the MCP supply chain.*
 
+<!-- cognis:layman:start -->
+## What is this?
+
+Biascope is a tool that checks whether an AI model treats different groups of people fairly. You feed it a set of responses that a model gave to identical prompts — where only one word changes, such as "young person", "elderly person", or "immigrant" — and it scores each response for positive or negative language, then flags any categories where one group was described significantly more favorably or more negatively than another. It also catches cases where a model defaulted to gendered language for certain jobs, like calling a nurse "she" and an engineer "he." It runs entirely on your own computer with no internet connection required, produces results in table, JSON, SARIF, or HTML formats, and is designed to slot into automated testing pipelines so bias checks happen automatically every time a model or prompt changes.
+<!-- cognis:layman:end -->
+
 ## Why
 
 Security and intelligence teams need embedded bias probe suite — demographic / occupational / geographic without standing up heavyweight infrastructure. `biascope` is single-purpose, scriptable, CI-friendly, and self-hostable: point it at a target, get prioritized findings in the format your workflow already speaks (table, JSON, SARIF, HTML), and wire it into agents over MCP when you want it autonomous.
+
+<!-- cognis:install:start -->
+## Install
+
+`biascope` is source-available (not published to PyPI) — every method below installs
+straight from GitHub. Pick whichever you prefer; the one-line scripts auto-detect
+the best tool available on your machine.
+
+**One-liner (Linux / macOS):**
+```sh
+curl -fsSL https://raw.githubusercontent.com/cognis-digital/biascope/HEAD/install.sh | sh
+```
+
+**One-liner (Windows PowerShell):**
+```powershell
+irm https://raw.githubusercontent.com/cognis-digital/biascope/HEAD/install.ps1 | iex
+```
+
+**Or install manually — any one of:**
+```sh
+pipx install "git+https://github.com/cognis-digital/biascope.git"     # isolated (recommended)
+uv tool install "git+https://github.com/cognis-digital/biascope.git"  # uv
+pip install "git+https://github.com/cognis-digital/biascope.git"      # pip
+```
+
+**From source:**
+```sh
+git clone https://github.com/cognis-digital/biascope.git
+cd biascope && pip install .
+```
+
+Then run:
+```sh
+biascope --help
+```
+<!-- cognis:install:end -->
 
 ## Install
 
