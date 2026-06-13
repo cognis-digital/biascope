@@ -12,6 +12,31 @@
 
 *AI Security & Governance — securing LLMs, agents, and the MCP supply chain.*
 
+## Usage — step by step
+
+1. **Install** the probe suite:
+   ```bash
+   pip install cognis-biascope
+   ```
+2. **Scan a completions file** for demographic / occupational / geographic bias. `scan` takes the recorded completions path:
+   ```bash
+   biascope scan demos/completions.jsonl
+   ```
+3. **Tune the sensitivity** — `--threshold` (default 3) sets how many probe hits flag a bias finding:
+   ```bash
+   biascope scan demos/completions.jsonl --threshold 2
+   ```
+4. **Read the output** as JSON (the global `--format` flag is `table` or `json` and precedes the subcommand), and inspect the probe catalog behind the findings:
+   ```bash
+   biascope --format json scan demos/completions.jsonl
+   biascope probes
+   ```
+5. **Automate in CI** — capture model completions, then scan them on every eval run:
+   ```yaml
+   - run: pip install cognis-biascope
+   - run: biascope --format json scan eval/completions.jsonl > biascope.json
+   ```
+
 ## Why
 
 Security and intelligence teams need embedded bias probe suite — demographic / occupational / geographic without standing up heavyweight infrastructure. `biascope` is single-purpose, scriptable, CI-friendly, and self-hostable: point it at a target, get prioritized findings in the format your workflow already speaks (table, JSON, SARIF, HTML), and wire it into agents over MCP when you want it autonomous.
