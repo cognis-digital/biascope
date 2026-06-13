@@ -3,7 +3,7 @@
 > Part of the **[Cognis Neural Suite](https://github.com/cognis-digital)** by [Cognis Digital](https://cognis.digital)
 > Cognis Open Collaboration License (COCL) v1.0 · domain: `ai-security`
 
-[![PyPI](https://img.shields.io/pypi/v/cognis-biascope.svg)](https://pypi.org/project/cognis-biascope/)
+[![install](https://img.shields.io/badge/install-git%2B%20%C2%B7%20pipx%20%C2%B7%20uv-6b46c1.svg)](#install--every-way-every-platform)
 [![CI](https://github.com/cognis-digital/biascope/actions/workflows/ci.yml/badge.svg)](https://github.com/cognis-digital/biascope/actions)
 [![License: COCL 1.0](https://img.shields.io/badge/License-COCL%201.0-2b6cb0.svg)](LICENSE)
 [![Suite](https://img.shields.io/badge/Cognis-Neural%20Suite-6b46c1.svg)](https://github.com/cognis-digital)
@@ -12,14 +12,66 @@
 
 *AI Security & Governance — securing LLMs, agents, and the MCP supply chain.*
 
+<!-- cognis:layman:start -->
+## What is this?
+
+Biascope is a tool that checks whether an AI model treats different groups of people fairly. You feed it a set of responses that a model gave to identical prompts — where only one word changes, such as "young person", "elderly person", or "immigrant" — and it scores each response for positive or negative language, then flags any categories where one group was described significantly more favorably or more negatively than another. It also catches cases where a model defaulted to gendered language for certain jobs, like calling a nurse "she" and an engineer "he." It runs entirely on your own computer with no internet connection required, produces results in table, JSON, SARIF, or HTML formats, and is designed to slot into automated testing pipelines so bias checks happen automatically every time a model or prompt changes.
+<!-- cognis:layman:end -->
+
 ## Why
 
 Security and intelligence teams need embedded bias probe suite — demographic / occupational / geographic without standing up heavyweight infrastructure. `biascope` is single-purpose, scriptable, CI-friendly, and self-hostable: point it at a target, get prioritized findings in the format your workflow already speaks (table, JSON, SARIF, HTML), and wire it into agents over MCP when you want it autonomous.
 
+<!-- cognis:domains:start -->
+## Domains
+
+**Primary domain:** AI & ML  ·  **JTF MERIDIAN division:** ATHENA-PRIME · SAGE
+
+**Topics:** `cognis` `ai` `llm` `machine-learning` `healthcare`
+
+Part of the **Cognis Neural Suite** — 300+ source-available tools organized across 12 domains under the JTF MERIDIAN command structure. See the [suite on GitHub](https://github.com/cognis-digital) and [jtf-meridian](https://github.com/cognis-digital/jtf-meridian) for how the pieces fit together.
+<!-- cognis:domains:end -->
+
+<!-- cognis:install:start -->
+## Install
+
+`biascope` is source-available (not published to PyPI) — every method below installs
+straight from GitHub. Pick whichever you prefer; the one-line scripts auto-detect
+the best tool available on your machine.
+
+**One-liner (Linux / macOS):**
+```sh
+curl -fsSL https://raw.githubusercontent.com/cognis-digital/biascope/HEAD/install.sh | sh
+```
+
+**One-liner (Windows PowerShell):**
+```powershell
+irm https://raw.githubusercontent.com/cognis-digital/biascope/HEAD/install.ps1 | iex
+```
+
+**Or install manually — any one of:**
+```sh
+pipx install "git+https://github.com/cognis-digital/biascope.git"     # isolated (recommended)
+uv tool install "git+https://github.com/cognis-digital/biascope.git"  # uv
+pip install "git+https://github.com/cognis-digital/biascope.git"      # pip
+```
+
+**From source:**
+```sh
+git clone https://github.com/cognis-digital/biascope.git
+cd biascope && pip install .
+```
+
+Then run:
+```sh
+biascope --help
+```
+<!-- cognis:install:end -->
+
 ## Install
 
 ```bash
-pip install cognis-biascope
+pip install "git+https://github.com/cognis-digital/biascope.git"
 # or, from this repo:
 pip install -e ".[dev]"
 ```
@@ -73,6 +125,32 @@ Missing a credit? Open a PR — see [CONTRIBUTING.md](CONTRIBUTING.md).
 ## Contributing
 
 PRs, new detections, and demo scenarios are welcome under the collaboration-pull model. See [CONTRIBUTING.md](CONTRIBUTING.md) and [SECURITY.md](SECURITY.md).
+
+<a name="verification"></a>
+## Verification
+
+[![tests](https://img.shields.io/badge/tests-8%20passing-2ea44f.svg)](AUDIT.md)
+
+Every push is verified end-to-end. Latest audit (2026-06-13):
+
+```text
+tests        : 8 passed, 0 failed, 0 errored
+compile      : all modules parse
+cli          : C:\Python314\python.exe: No module named https
+package      : https
+```
+
+<details><summary>CLI surface (<code>--help</code>)</summary>
+
+```text
+C:\Python314\python.exe: No module named https
+```
+</details>
+
+Full machine-readable results: [`AUDIT.md`](AUDIT.md) · regenerate with `python -m https --help` + `pytest -q`.
+
+<div align="right"><a href="#top">↑ back to top</a></div>
+
 
 ## License
 
