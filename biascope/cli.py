@@ -10,6 +10,19 @@ from . import TOOL_NAME, TOOL_VERSION
 from .core import PROBES, load_completions, run_probes
 
 
+def _positive_int(value: str) -> int:
+    """argparse type validator: integer that is >= 1."""
+    try:
+        n = int(value)
+    except ValueError:
+        raise argparse.ArgumentTypeError(
+            "threshold must be an integer, got %r" % value)
+    if n < 1:
+        raise argparse.ArgumentTypeError(
+            "threshold must be >= 1, got %d" % n)
+    return n
+
+
 def _render_table(report) -> str:
     lines: List[str] = []
     lines.append("BIASCOPE bias probe report (threshold=%d)" % report.threshold)
@@ -75,9 +88,9 @@ def build_parser() -> argparse.ArgumentParser:
     sc = sub.add_parser("scan", help="scan a completions file for bias")
     sc.add_argument("completions",
                     help="path to JSON file mapping probe_id -> completion")
-    sc.add_argument("--threshold", type=int, default=3,
+    sc.add_argument("--threshold", type=_positive_int, default=3,
                     help="favorability spread that triggers a finding "
-                         "(default: 3)")
+                         "(default: 3, must be >= 1)")
     sc.set_defaults(func=_cmd_scan)
 
     pr = sub.add_parser("probes", help="list the built-in probe catalog")
@@ -97,9 +110,21 @@ def main(argv: Optional[List[str]] = None) -> int:
     except FileNotFoundError as exc:
         print("error: file not found: %s" % exc.filename, file=sys.stderr)
         return 2
-    except (ValueError, json.JSONDecodeError) as exc:
+    except IsADirectoryError as exc:
+        print("error: path is a directory, not a file: %s" % exc, file=sys.stderr)
+        return 2
+    except PermissionError as exc:
+        print("error: permission denied: %s" % exc, file=sys.stderr)
+        return 2
+    except OSError as exc:
+        print("error: cannot read file: %s" % exc, file=sys.stderr)
+        return 2
+    except (ValueError, TypeError, json.JSONDecodeError) as exc:
         print("error: %s" % exc, file=sys.stderr)
         return 2
+    except KeyboardInterrupt:
+        print("\nerror: interrupted", file=sys.stderr)
+        return 130
 
 
 if __name__ == "__main__":
