@@ -12,6 +12,71 @@
 
 *AI Security & Governance — securing LLMs, agents, and the MCP supply chain.*
 
+
+<!-- cognis:example:start -->
+## 🔎 Example output
+
+Real, reproducible output from the tool — runs offline:
+
+```console
+$ biascope-emit --version
+biascope 0.1.0
+```
+
+```console
+$ biascope-emit --help
+usage: biascope [-h] [--version] [--format {table,json}] {scan,probes} ...
+
+BIASCOPE - embedded bias probe suite. Scans recorded model completions for
+demographic, occupational, and geographic bias. Offline, deterministic, CI-
+friendly.
+
+positional arguments:
+  {scan,probes}
+    scan                scan a completions file for bias
+    probes              list the built-in probe catalog
+
+options:
+  -h, --help            show this help message and exit
+  --version             show program's version number and exit
+  --format {table,json}
+                        output format (default: table)
+
+Exit code 1 indicates one or more bias findings were detected.
+```
+
+> Blocks above are real `biascope` output — reproduce them from a clone.
+
+**Sample result format** _(illustrative values — run on your own data for real findings):_
+
+```
+{
+"findings": [
+    {
+        "id": "1234567890",
+        "title": "Suspicious Network Activity",
+        "description": "Network traffic anomalies detected",
+        "indicator": {
+            "type": "ip",
+            "value": "192.168.1.100"
+        },
+        "observable": {
+            "type": "network_traffic",
+            "data": [
+                {
+                    "protocol": "tcp",
+                    "source_port": 1234,
+                    "destination_port": 80
+                }
+            ]
+        }
+    }
+]
+}
+```
+
+<!-- cognis:example:end -->
+
 ## Usage — step by step
 
 1. **Install** the probe suite:

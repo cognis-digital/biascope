@@ -1,0 +1,3 @@
+$ biascope-emit --version
+
+biascope 0.1.0
